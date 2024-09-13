@@ -1,0 +1,62 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid grey;  
+}
+
+.logo {
+    width: 100px;
+}
+
+.nav-container > ul {
+    font-size: 20px;
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-container > ul > li {
+    padding: 10px;
+    margin: 10px;
+}
+
+.body {
+    justify-content: center;
+}
+
+.res-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.res-card {
+    width: 250px;
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+}
+
+.res-card:hover {
+    border: 1px solid #a79e9e;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.res-card > img {
+    width: 100%;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.searchInput {
+    width: 500px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid rgb(198, 190, 190);
+}
