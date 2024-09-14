@@ -91,3 +91,9 @@
     background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
     background-size: 1200px 100%;
 }
+
+.signin {
+    margin: auto 20px;
+    height: 50px;
+    width: 100px;
+}
