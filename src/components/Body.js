@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { RESTAURANT_LIST_URL } from "../utils/constants";
 
 const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -12,21 +13,22 @@ const Body = () => {
   }, []);
 
   const fetchRestaurants = async () => {
-    const API_URL =
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.96340&lng=77.58550&collection=83636&tags=&sortBy=&filters=&type=rcv2&offset=0&limt=50";
-
-    const response = await fetch(API_URL);
+    const response = await fetch(RESTAURANT_LIST_URL);
     const data = await response.json();
-    const resCards = data?.data?.cards
-      .filter(
-        (data) =>
-          data?.card.card["@type"] ===
-          "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
-      )
-      .map((data) => data.card.card);
+    const cards = data?.data?.cards;
 
-    setOriginalList(resCards);
-    setFilteredRestaurants(resCards);
+    const restaurantCards = cards
+      ?.filter(
+        (data) =>
+          data?.card?.card?.gridElements?.infoWithStyle["@type"] ===
+          "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle"
+      )
+      .map(
+        (data) => data?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      )?.[0];
+
+    setOriginalList(restaurantCards);
+    setFilteredRestaurants(restaurantCards);
   };
 
   const findTopRatedRes = () => {

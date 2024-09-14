@@ -4,5 +4,8 @@ export const LOGO_URL =
 export const THUMBNAIL_IMAGE_BASE_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
+export const RESTAURANT_LIST_URL =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9485126&lng=77.71476779999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+
 export const SIGN_IN = "Sign In";
 export const SIGN_OUT = "Sign Out";
