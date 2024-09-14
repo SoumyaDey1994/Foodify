@@ -4,6 +4,8 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [searchInput, setSearchInput] = useState([]);
+  const [originalList, setOriginalList] = useState([]);
 
   useEffect(() => {
     fetchRestaurants();
@@ -22,12 +24,24 @@ const Body = () => {
           "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
       )
       .map((data) => data.card.card);
+
+    setOriginalList(resCards);
     setFilteredRestaurants(resCards);
   };
 
   const findTopRatedRes = () => {
-    const filteredList = filteredRestaurants.filter(
-      (res) => res.info.avgRating >= 4
+    const filteredList = originalList.filter(
+      (res) => res.info.avgRating >= 4.5
+    );
+    setFilteredRestaurants(filteredList);
+  };
+
+  const findRestaurants = () => {
+    if (searchInput === "") {
+      setFilteredRestaurants(originalList);
+    }
+    const filteredList = originalList.filter((res) =>
+      res.info.name.toLowerCase().includes(searchInput)
     );
     setFilteredRestaurants(filteredList);
   };
@@ -41,12 +55,18 @@ const Body = () => {
           type="text"
           name="search"
           className="searchInput"
-          placeholder="Find food or restaurant"
+          placeholder="Find restaurant"
+          value={searchInput}
+          onChange={(event) => setSearchInput(event.target.value.toLowerCase())}
         />
+        <button className="searchBtn" onClick={() => findRestaurants()}>
+          Search
+        </button>
         <button className="topRatedRes" onClick={() => findTopRatedRes()}>
           Find Top Rated Restaurants
         </button>
       </div>
+
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => (
           <RestaurantCard

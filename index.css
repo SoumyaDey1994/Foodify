@@ -97,3 +97,16 @@
     height: 50px;
     width: 100px;
 }
+
+.searchBtn {
+    margin: 0 10px;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.topRatedRes {
+    margin: 0 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
