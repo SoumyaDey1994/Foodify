@@ -78,12 +78,14 @@ const RestaurantMenu = () => {
           <div className="menu-card">
             <h2 className="menuItemHeading">{menuItem.title}</h2>
             {menuItem?.itemCards?.map((card) => (
-              <div>
-                <h4>{card?.card?.info?.name}</h4>
+              <div className="menuItemContainer">
+                <h4 style={{ width: "300px" }}>{card?.card?.info?.name}</h4>
                 <span>
-                  Rs{" "}
-                  {(card?.card?.info?.price || card?.card?.info?.defaultPrice) /
-                    100}
+                  <span>&#8377;</span>{" "}
+                  {Math.floor(
+                    (card?.card?.info?.price ||
+                      card?.card?.info?.defaultPrice) / 100
+                  )}
                 </span>
               </div>
             ))}
