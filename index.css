@@ -117,3 +117,31 @@
     text-decoration: none;
     color: black;
 }
+
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-card {
+    width: 300px;
+    height: auto;
+    margin: 10px 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.restaurantInfo {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.menuItemHeading {
+    margin-bottom: 50px;
+    text-align: center;
+}
