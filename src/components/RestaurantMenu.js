@@ -80,7 +80,7 @@ const RestaurantMenu = () => {
             {menuItem?.itemCards?.map((card) => (
               <div className="menuItemContainer">
                 <h4 style={{ width: "300px" }}>{card?.card?.info?.name}</h4>
-                <span>
+                <span style={{ paddingRight: "10px" }}>
                   <span>&#8377;</span>{" "}
                   {Math.floor(
                     (card?.card?.info?.price ||
