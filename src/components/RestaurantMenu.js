@@ -59,7 +59,7 @@ const RestaurantMenu = () => {
   return (
     <div className="menu">
       <div className="restaurantInfo">
-        <h2>{name}</h2>
+        <h1>{name}</h1>
         <p>{cuisines?.join(", ")}</p>
         <h4>
           ⭐ {avgRating} ({totalRatingsString}) :
