@@ -7,5 +7,7 @@ export const THUMBNAIL_IMAGE_BASE_URL =
 export const RESTAURANT_LIST_URL =
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9485126&lng=77.71476779999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
+export const RESTAURANT_MENU_URL =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9485126&lng=77.71476779999999&restaurantId=";
 export const SIGN_IN = "Sign In";
 export const SIGN_OUT = "Sign Out";

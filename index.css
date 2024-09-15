@@ -110,3 +110,8 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+.link {
+    text-decoration: none;
+    color: black;
+}
