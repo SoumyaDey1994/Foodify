@@ -24,15 +24,17 @@
 }
 
 .res-container {
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .res-card {
     width: 250px;
     height: auto;
-    margin: 10px;
+    margin: 10px 20px;
     padding: 10px;
 }
 
@@ -65,7 +67,7 @@
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .shimmer-card {

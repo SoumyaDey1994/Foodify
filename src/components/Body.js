@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import { TOP_RESTAURANT_RATING } from "../utils/constants";
 
 const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -34,7 +35,7 @@ const Body = () => {
 
   const findTopRatedRes = () => {
     const filteredList = originalList.filter(
-      (res) => res.info.avgRating >= 4.5
+      (res) => res.info.avgRating >= TOP_RESTAURANT_RATING
     );
     setFilteredRestaurants(filteredList);
   };

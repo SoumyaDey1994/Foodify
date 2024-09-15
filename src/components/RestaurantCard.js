@@ -14,7 +14,7 @@ const RestaurantCard = (props) => {
 
   const { link } = props;
   return (
-    <div className="res-card" onClick={() => window.open(link, "_blank")}>
+    <div className="res-card">
       <img
         src={`${THUMBNAIL_IMAGE_BASE_URL}${cloudinaryImageId}`}
         className="res-logo"

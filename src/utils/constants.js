@@ -11,3 +11,4 @@ export const RESTAURANT_MENU_URL =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9485126&lng=77.71476779999999&restaurantId=";
 export const SIGN_IN = "Sign In";
 export const SIGN_OUT = "Sign Out";
+export const TOP_RESTAURANT_RATING = 4.5;
