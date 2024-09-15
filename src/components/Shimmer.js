@@ -6,7 +6,6 @@ const Shimmer = () => {
       <div className="shimmer-card shimmerBG"></div>
       <div className="shimmer-card shimmerBG"></div>
       <div className="shimmer-card shimmerBG"></div>
-      <div className="shimmer-card shimmerBG"></div>
     </div>
   );
 };
