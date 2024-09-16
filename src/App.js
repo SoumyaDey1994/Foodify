@@ -1,14 +1,16 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import Header from "./components/Header";
 import Body from "./components/Body";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
-import Cart from "./components/Cart";
-import RestaurantMenu from "./components/RestaurantMenu";
+import Shimmer from "./components/Shimmer";
+
+const About = lazy(() => import("./components/About"));
+const Cart = lazy(() => import("./components/Cart"));
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 
 const AppLayout = () => (
   <div className="app">
@@ -28,20 +30,32 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/about",
-        element: <About />,
-      },
-      {
         path: "/contact",
         element: <Contact />,
       },
       {
+        path: "/about",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <About />
+          </Suspense>
+        ),
+      },
+      {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurants/:resId",
-        element: <RestaurantMenu />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <RestaurantMenu />
+          </Suspense>
+        ),
       },
     ],
   },
