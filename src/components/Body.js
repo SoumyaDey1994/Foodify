@@ -1,37 +1,18 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { RESTAURANT_LIST_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { TOP_RESTAURANT_RATING } from "../utils/constants";
+import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
-  const [originalList, setOriginalList] = useState([]);
+  const originalList = useRestaurantList();
 
   useEffect(() => {
-    fetchRestaurants();
-  }, []);
-
-  const fetchRestaurants = async () => {
-    const response = await fetch(RESTAURANT_LIST_URL);
-    const data = await response.json();
-    const cards = data?.data?.cards;
-
-    const restaurantCards = cards
-      ?.filter(
-        (data) =>
-          data?.card?.card?.gridElements?.infoWithStyle["@type"] ===
-          "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle"
-      )
-      .map(
-        (data) => data?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      )?.[0];
-
-    setOriginalList(restaurantCards);
-    setFilteredRestaurants(restaurantCards);
-  };
+    setFilteredRestaurants(originalList);
+  }, [originalList]);
 
   const findTopRatedRes = () => {
     const filteredList = originalList.filter(
