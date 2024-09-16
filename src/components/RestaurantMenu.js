@@ -1,47 +1,10 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { RESTAURANT_MENU_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const [restaurantInfo, setRestaurantInfo] = useState(null);
-  const [menu, setMenu] = useState(null);
-
-  useEffect(() => {
-    fetchRestaurantMenu();
-  }, []);
-
-  const fetchRestaurantMenu = async () => {
-    const MENU_API_URL = RESTAURANT_MENU_URL + resId;
-    const response = await fetch(MENU_API_URL);
-    const json = await response.json();
-    console.log(json);
-
-    const restaurantDetails = json?.data?.cards
-      .filter(
-        (item) =>
-          item?.card?.card["@type"] ===
-          "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
-      )
-      ?.map((item) => item?.card?.card?.info)?.[0];
-
-    const allMenuItems = json?.data?.cards?.find((item) => item?.groupedCard)
-      ?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    const menuItems = allMenuItems
-      ?.filter(
-        (item) =>
-          item?.card?.card["@type"] ===
-          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-      )
-      ?.map((item) => item?.card?.card);
-    // const menuItemsCategory = allMenuItems?.filter(item => item?.card?.card['@type'] === 'type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory').map(item => item?.card?.card);
-
-    console.log(allMenuItems);
-    console.log(menuItems);
-    setRestaurantInfo(restaurantDetails);
-    setMenu(menuItems);
-  };
+  const [restaurantInfo, menu] = useRestaurantMenu(resId);
 
   if (restaurantInfo === null) {
     return <Shimmer />;
