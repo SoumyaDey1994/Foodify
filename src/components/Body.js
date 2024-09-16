@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -9,6 +9,8 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState([]);
   const originalList = useRestaurantList();
+
+  const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
 
   useEffect(() => {
     setFilteredRestaurants(originalList);
@@ -59,11 +61,19 @@ const Body = () => {
             to={"/restaurants/" + restaurant.info.id}
             className="link"
           >
-            <RestaurantCard
-              resData={restaurant.info}
-              key={restaurant.info.id}
-              link={restaurant.cta.link}
-            />
+            {restaurant.info.avgRating >= 4.3 ? (
+              <PromotedRestaurantCard
+                resData={restaurant.info}
+                key={restaurant.info.id}
+                link={restaurant.cta.link}
+              />
+            ) : (
+              <RestaurantCard
+                resData={restaurant.info}
+                key={restaurant.info.id}
+                link={restaurant.cta.link}
+              />
+            )}
           </Link>
         ))}
       </div>

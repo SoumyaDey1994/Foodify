@@ -30,4 +30,16 @@ const RestaurantCard = (props) => {
   );
 };
 
+//Higher-order component to display Promoted label
+export const withPromotedLabel = (Card) => {
+  return (props) => {
+    return (
+      <>
+        <label className="top-rated-label">Top Rated</label>
+        <Card {...props} />
+      </>
+    );
+  };
+};
+
 export default RestaurantCard;
