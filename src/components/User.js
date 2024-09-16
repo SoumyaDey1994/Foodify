@@ -17,16 +17,33 @@ export class UserClass extends React.Component {
     this.state = {
       count: 0,
       count2: 0,
+      userInfo: {},
     };
   }
+
+  async componentDidMount() {
+    const USER_API_URL = `https://api.github.com/users/${this.props.userName}`;
+    const data = await fetch(USER_API_URL);
+    const json = await data.json();
+    this.setState({
+      userInfo: json,
+    });
+  }
+
   render() {
-    const { name, profession, contact } = this.props;
+    const { name, location, avatar_url, html_url } = this.state.userInfo;
     return (
       <>
         <div className="userCard">
-          <h2>Name: {name}</h2>
-          <h3>Profession: {profession}</h3>
-          <h4>Contact: {contact}</h4>
+          <img src={avatar_url} width={"100px"} />
+          <h2>{name}</h2>
+          <h3>{location}</h3>
+          <h3>
+            Repo:{" "}
+            <a href={html_url} target="_blank">
+              {html_url}
+            </a>
+          </h3>
         </div>
         <div className="userCard">
           <h4>Counter 1: {this.state.count}</h4>
