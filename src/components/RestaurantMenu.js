@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import RestaurantMenuCategory from "./RestaurantMenuCategory";
+import RestaurantMenuCategoryAccr from "./RestaurantMenuCategoryAccr";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
@@ -40,6 +41,12 @@ const RestaurantMenu = () => {
       <div className="menu-container">
         {menu.map((category) => <RestaurantMenuCategory category={category}/>)}
       </div>
+
+      {/* <div style={{ background: "#FOFOFO", width: "80%", margin: "auto" }}>
+        {menu.map((category) => (
+          <RestaurantMenuCategoryAccr category={category} />
+        ))}
+      </div> */}
     </div>
   );
 };
