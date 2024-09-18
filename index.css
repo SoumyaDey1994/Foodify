@@ -6,8 +6,30 @@
     margin-bottom: 50px;  
 }
 
+.logoContainer {
+    display: flex;
+}
+
 .logo {
     width: 100px;
+    border-radius: 50%;
+}
+
+.app-online {
+    border: 3px dashed green;
+    border-radius: 50%;
+}
+
+.app-offline {
+    border: 3px dashed red;
+    border-radius: 50%;
+}
+
+.status-indicator {
+    font-size: xx-large;
+    margin: auto;
+    bottom: 0;
+    position: sticky;
 }
 
 .nav-container > ul {

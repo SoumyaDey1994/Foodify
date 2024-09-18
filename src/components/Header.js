@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { SIGN_IN, SIGN_OUT } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   let [btnName, setBtnName] = useState(SIGN_IN);
+  const isAppOnline = useOnlineStatus();
 
   const updateBtnName = () => {
     btnName === SIGN_IN ? setBtnName(SIGN_OUT) : setBtnName(SIGN_IN);
@@ -12,7 +14,11 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className="logoContainer">
+      <div
+        className={
+          "logoContainer " + (isAppOnline ? "app-online" : "app-offline")
+        }
+      >
         <Link to={"/"}>
           <img src={LOGO_URL} className="logo" />
         </Link>
