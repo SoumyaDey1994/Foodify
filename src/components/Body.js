@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { TOP_RESTAURANT_RATING } from "../utils/constants";
 import useRestaurantList from "../utils/useRestaurantList";
+import styles from "../styles/Body.module.css";
 
 const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -36,30 +37,33 @@ const Body = () => {
   if (filteredRestaurants.length === 0) return <Shimmer />;
 
   return (
-    <div className="body">
-      <div className="search-container">
+    <div className={styles.body}>
+      <div className={styles.searchContainer}>
         <input
           type="text"
           name="search"
-          className="searchInput"
+          className={styles.searchInput}
           placeholder="Find restaurant"
           value={searchInput}
           onChange={(event) => setSearchInput(event.target.value.toLowerCase())}
         />
-        <button className="searchBtn" onClick={() => findRestaurants()}>
+        <button className={styles.searchBtn} onClick={() => findRestaurants()}>
           Search
         </button>
-        <button className="topRatedRes" onClick={() => findTopRatedRes()}>
+        <button
+          className={styles.topRatedRes}
+          onClick={() => findTopRatedRes()}
+        >
           Find Top Rated Restaurants
         </button>
       </div>
 
-      <div className="res-container">
+      <div className={styles.resContainer}>
         {filteredRestaurants.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
-            className="link"
+            className={styles.link}
           >
             {restaurant.info.avgRating >= 4.3 ? (
               <PromotedRestaurantCard

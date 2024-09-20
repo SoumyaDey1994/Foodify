@@ -3,6 +3,7 @@ import { LOGO_URL } from "../utils/constants";
 import { SIGN_IN, SIGN_OUT } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import styles from "../styles/Header.module.css";
 
 const Header = () => {
   let [btnName, setBtnName] = useState(SIGN_IN);
@@ -13,17 +14,18 @@ const Header = () => {
   };
 
   return (
-    <div className="header">
+    <div className={styles.header}>
       <div
         className={
-          "logoContainer " + (isAppOnline ? "app-online" : "app-offline")
+          `${styles.logoContainer} ` +
+          (isAppOnline ? styles.appOnline : styles.appOffline)
         }
       >
         <Link to={"/"}>
-          <img src={LOGO_URL} className="logo" />
+          <img src={LOGO_URL} className={styles.logo} />
         </Link>
       </div>
-      <div className="nav-container">
+      <div className={styles.navContainer}>
         <ul>
           <li key={"home"}>
             <Link to={"/"}>Home</Link>
@@ -37,7 +39,7 @@ const Header = () => {
           <li key={"cart"}>
             <Link to={"/cart"}>Cart</Link>
           </li>
-          <button className="signin" onClick={() => updateBtnName()}>
+          <button className={styles.signIn} onClick={() => updateBtnName()}>
             {btnName}
           </button>
         </ul>

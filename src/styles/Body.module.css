@@ -1,0 +1,42 @@
+.body {
+    justify-content: center;
+}
+
+.resContainer {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.searchInput {
+    width: 500px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid rgb(198, 190, 190);
+}
+
+.searchBtn {
+    margin: 0 10px;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.topRatedRes {
+    margin: 0 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
