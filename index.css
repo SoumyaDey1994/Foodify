@@ -17,46 +17,6 @@
     border-radius: 20px;
 }
 
-.shimmer-container {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-.shimmer-card {
-    width: 250px;
-    height: 500px;
-    margin: 10px;
-    padding: 10px;
-    position: relative;
-    -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    background-color: #FFF;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.shimmerBG {
-    animation-duration: 2.2s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: shimmer;
-    animation-timing-function: linear;
-    background: #ddd;
-    background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
-    background-size: 1200px 100%;
-}
-
-.menu-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 90%;
-    margin: 0 auto;
-}
-
 .menu-card {
     width: 400px;
     height: auto;
@@ -64,12 +24,6 @@
     padding: 10px;
     border: 1px solid gray;
     border-radius: 10px;
-}
-
-.restaurantInfo {
-    display: block;
-    margin: auto;
-    text-align: center;
 }
 
 .menuItemHeading {

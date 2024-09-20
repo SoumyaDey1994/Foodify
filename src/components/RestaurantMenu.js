@@ -3,6 +3,7 @@ import Shimmer from "./Shimmer";
 import RestaurantMenuCategory from "./RestaurantMenuCategory";
 import RestaurantMenuCategoryAccr from "./RestaurantMenuCategoryAccr";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import styles from "../styles/RestaurantMenu.module.css";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -22,8 +23,8 @@ const RestaurantMenu = () => {
     locality,
   } = restaurantInfo;
   return (
-    <div className="menu">
-      <div className="restaurantInfo">
+    <div>
+      <div className={styles.restaurantInfo}>
         <h1>{name}</h1>
         <p>{cuisines?.join(", ")}</p>
         <h4>
@@ -38,8 +39,10 @@ const RestaurantMenu = () => {
         </p>
       </div>
 
-      <div className="menu-container">
-        {menu.map((category) => <RestaurantMenuCategory category={category}/>)}
+      <div className={styles.menuContainer}>
+        {menu.map((category) => (
+          <RestaurantMenuCategory category={category} />
+        ))}
       </div>
 
       {/* <div style={{ background: "#FOFOFO", width: "80%", margin: "auto" }}>

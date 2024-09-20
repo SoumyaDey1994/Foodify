@@ -1,0 +1,17 @@
+.menu {
+    display: block;
+}
+
+.restaurantInfo {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.menuContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 90%;
+    margin: 0 auto;
+}
