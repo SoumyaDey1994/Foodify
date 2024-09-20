@@ -39,17 +39,17 @@ const RestaurantMenu = () => {
         </p>
       </div>
 
-      <div className={styles.menuContainer}>
+      {/* <div className={styles.menuContainer}>
         {menu.map((category) => (
           <RestaurantMenuCategory category={category} />
         ))}
-      </div>
+      </div> */}
 
-      {/* <div style={{ background: "#FOFOFO", width: "80%", margin: "auto" }}>
+      <div className={styles.menuContainerAccr}>
         {menu.map((category) => (
           <RestaurantMenuCategoryAccr category={category} />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };
