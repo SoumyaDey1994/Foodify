@@ -1,0 +1,28 @@
+.menuCard {
+    width: 400px;
+    height: auto;
+    margin: 10px 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.menuItemHeading {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.menuItemContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+}
+
+.menuItemContainer > h4 {
+    width: 300px;
+}
+
+.menuItemContainer > span {
+    padding-right: 10px;
+}

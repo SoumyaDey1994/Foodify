@@ -1,4 +1,5 @@
 import { THUMBNAIL_IMAGE_BASE_URL } from "../utils/constants";
+import styles from "../styles/RestaurantCard.module.css";
 
 const RestaurantCard = (props) => {
   const {
@@ -14,10 +15,10 @@ const RestaurantCard = (props) => {
 
   const { link } = props;
   return (
-    <div className="res-card">
+    <div className={styles.resCard}>
       <img
         src={`${THUMBNAIL_IMAGE_BASE_URL}${cloudinaryImageId}`}
-        className="res-logo"
+        className={styles.resLogo}
       />
       <h3>{name}</h3>
       <h4>
@@ -35,7 +36,7 @@ export const withPromotedLabel = (Card) => {
   return (props) => {
     return (
       <>
-        <label className="top-rated-label">Top Rated</label>
+        <label className={styles.topRatedLabel}>Top Rated</label>
         <Card {...props} />
       </>
     );

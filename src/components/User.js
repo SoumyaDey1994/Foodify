@@ -1,9 +1,10 @@
 import React from "react";
+import styles from "../styles/User.module.css";
 
 export const User = (props) => {
   const { name, profession, contact } = props;
   return (
-    <div className="userCard">
+    <div className={styles.userCard}>
       <h2>Name: {name}</h2>
       <h3>Profession: {profession}</h3>
       <h4>Contact: {contact}</h4>
@@ -34,8 +35,8 @@ export class UserClass extends React.Component {
     const { name, location, avatar_url, html_url } = this.state.userInfo;
     return (
       <>
-        <div className="userCard">
-          <img src={avatar_url} width={"100px"} />
+        <div className={styles.userCard}>
+          <img src={avatar_url} />
           <h2>{name}</h2>
           <h3>{location}</h3>
           <h3>
@@ -45,7 +46,7 @@ export class UserClass extends React.Component {
             </a>
           </h3>
         </div>
-        <div className="userCard">
+        <div style={{ display: "none" }}>
           <h4>Counter 1: {this.state.count}</h4>
           <h4>Counter 2: {this.state.count2}</h4>
           <button

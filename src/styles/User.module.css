@@ -1,0 +1,10 @@
+.userCard {
+    width: 400px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #a79e9e;
+}
+
+.userCard > img {
+    width: 100px;
+}
