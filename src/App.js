@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -8,18 +8,24 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Shimmer from "./components/Shimmer";
 import Footer from "./components/Footer";
+import loggedInUserContext from "./utils/UserContext";
 
 const About = lazy(() => import("./components/About"));
 const Cart = lazy(() => import("./components/Cart"));
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 
-const AppLayout = () => (
-  <div className="app">
-    <Header />
-    <Outlet />
-    <Footer />
-  </div>
-);
+const AppLayout = () => {
+  const [userInfo, setUserInfo] = useState(null);
+  return (
+    <div className="app">
+      <loggedInUserContext.Provider value={{userInfo, setUserInfo}}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </loggedInUserContext.Provider>
+    </div>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {

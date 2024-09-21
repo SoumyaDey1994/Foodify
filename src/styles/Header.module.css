@@ -30,7 +30,9 @@
 .signIn {
     margin: auto 20px;
     height: 50px;
-    width: 100px;
+    width: 200px;
+    border-radius: 20px;
+    background: transparent;
 }
 
 .appOnline {

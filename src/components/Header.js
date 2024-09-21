@@ -1,16 +1,31 @@
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { SIGN_IN, SIGN_OUT } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import styles from "../styles/Header.module.css";
+import loggedInUserContext from "../utils/UserContext";
 
 const Header = () => {
   let [btnName, setBtnName] = useState(SIGN_IN);
   const isAppOnline = useOnlineStatus();
+  const { setUserInfo } = useContext(loggedInUserContext);
 
   const updateBtnName = () => {
-    btnName === SIGN_IN ? setBtnName(SIGN_OUT) : setBtnName(SIGN_IN);
+    if (btnName === SIGN_IN) {
+      getLoggedInUserDetails();
+    } else {
+      setUserInfo(null);
+      setBtnName(SIGN_IN);
+    }
+  };
+
+  const getLoggedInUserDetails = async () => {
+    const USER_API_URL = `https://api.github.com/users/SoumyaDey1994`;
+    const data = await fetch(USER_API_URL);
+    const json = await data.json();
+    setUserInfo(json);
+    setBtnName("Welcome " + json.name + "!");
   };
 
   return (
@@ -40,7 +55,9 @@ const Header = () => {
             <Link to={"/cart"}>Cart</Link>
           </li>
           <button className={styles.signIn} onClick={() => updateBtnName()}>
-            {btnName}
+            <p>
+              <strong>{btnName}</strong>
+            </p>
           </button>
         </ul>
       </div>
