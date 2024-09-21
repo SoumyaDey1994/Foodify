@@ -1,0 +1,12 @@
+.footer {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(209, 203, 203);
+    display: flex;
+    justify-content: center;
+}
+
+.footer > p {
+    margin: auto;
+}
