@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../styles/User.module.css";
+import loggedInUserContext from "../utils/UserContext";
 
-export const User = (props) => {
-  const { name, profession, contact } = props;
+export const User = () => {
+  const { userInfo } = useContext(loggedInUserContext);
+  const { name, bio, company, avatar_url, location } = userInfo || {};
   return (
     <div className={styles.userCard}>
-      <h2>Name: {name}</h2>
-      <h3>Profession: {profession}</h3>
-      <h4>Contact: {contact}</h4>
+      {userInfo ? (
+        <div>
+          <img src={avatar_url} />
+          <h2>Owner: {name}</h2>
+          <h3>Company: {company}</h3>
+          <h3>Location: {location}</h3>
+          <p>{bio}</p>
+        </div>
+      ) : (
+        <h3>No Data Available</h3>
+      )}
     </div>
   );
 };
