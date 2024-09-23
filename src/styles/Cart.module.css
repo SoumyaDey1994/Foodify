@@ -1,0 +1,11 @@
+.cart > h1 {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.cartItems {
+    width: 50%;
+    margin: auto;
+    justify-content: flex-start;
+    background-color: #f0f0f5;
+}

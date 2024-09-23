@@ -11,6 +11,7 @@ const Header = () => {
   let [btnName, setBtnName] = useState(SIGN_IN);
   const isAppOnline = useOnlineStatus();
   const { setUserInfo } = useContext(loggedInUserContext);
+  // Subscribing to the Store
   const cartItmes = useSelector((store) => store.cart.items);
 
   const updateBtnName = () => {

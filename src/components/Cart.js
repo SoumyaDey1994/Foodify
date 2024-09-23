@@ -1,8 +1,16 @@
+import { useSelector } from "react-redux";
+import styles from "../styles/Cart.module.css";
+import MenuCategoryItemListAccr from "./MenuCategoryItemListAccr";
+
 const Cart = () => {
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
-    <div className="cart">
-      <h1>This is Cart</h1>
-      <h3>Here are list of items selected...</h3>
+    <div className={styles.cart}>
+      <h1>Checkout</h1>
+      <div className={styles.cartItems}>
+        <MenuCategoryItemListAccr items={cartItems} />
+      </div>
     </div>
   );
 };
