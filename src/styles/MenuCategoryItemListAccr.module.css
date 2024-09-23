@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     border-bottom: 1px solid rgb(190, 182, 182);
 }
 
@@ -29,16 +29,4 @@
     bottom: 28px;
     transform: translateX(-50%);
     z-index: 1;
-}
-
-
-.itemImage > div > button {
-    width: 100px;
-    height: 30px;
-    position: absolute;
-    margin: 30px auto;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: auto;
-    color: green;
 }

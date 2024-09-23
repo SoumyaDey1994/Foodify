@@ -13,7 +13,6 @@ const useRestaurantMenu = (resId) => {
     const MENU_API_URL = RESTAURANT_MENU_URL + resId;
     const response = await fetch(MENU_API_URL);
     const json = await response.json();
-    console.log(json);
 
     const restaurantDetails = json?.data?.cards
       .filter(

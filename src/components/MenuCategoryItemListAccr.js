@@ -1,15 +1,8 @@
-import { useDispatch } from "react-redux";
 import styles from "../styles/MenuCategoryItemListAccr.module.css";
 import { THUMBNAIL_IMAGE_BASE_URL } from "../utils/constants";
-import { addItem } from "../Store/cartSlice";
+import AddMenuItem from "./AddMenuItem";
 
 const MenuCategoryItemListAccr = (props) => {
-  const dispatch = useDispatch();
-
-  const handleAddMenuItem = (item) => {
-    // Dispatch an action
-    dispatch(addItem(item));
-  };
 
   const items = props.items;
   return (
@@ -33,9 +26,7 @@ const MenuCategoryItemListAccr = (props) => {
                   alt="menuItemImage"
                 />
               )}
-              <div>
-                <button onClick={() => handleAddMenuItem(item)}>ADD</button>
-              </div>
+              <AddMenuItem item={item}/>
             </div>
           </div>
         );

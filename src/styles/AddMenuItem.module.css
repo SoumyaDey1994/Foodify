@@ -1,0 +1,35 @@
+
+.addBtn {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    margin: 30px auto;
+    padding: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: auto;
+    color: green;
+}
+
+.itemSelectBtnGroup {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    margin: 30px auto;
+    padding: 2px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    display: flex;
+    justify-content: space-between;
+    color: green;
+}
+
+.itemSelectBtnGroup > button {
+    border: none;
+    cursor: pointer;
+    padding: auto;
+}
+.itemSelectBtnGroup > span {
+    text-align: center;
+    margin: auto;
+}

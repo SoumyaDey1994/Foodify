@@ -46,8 +46,8 @@ const RestaurantMenu = () => {
       </div> */}
 
       <div className={styles.menuContainerAccr}>
-        {menu.map((category) => (
-          <RestaurantMenuCategoryAccr category={category} />
+        {menu.map((category, index) => (
+          <RestaurantMenuCategoryAccr category={category} key={index}/>
         ))}
       </div>
     </div>
