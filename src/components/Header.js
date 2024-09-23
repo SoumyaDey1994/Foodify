@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import styles from "../styles/Header.module.css";
 import loggedInUserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   let [btnName, setBtnName] = useState(SIGN_IN);
   const isAppOnline = useOnlineStatus();
   const { setUserInfo } = useContext(loggedInUserContext);
+  const cartItmes = useSelector((store) => store.cart.items);
 
   const updateBtnName = () => {
     if (btnName === SIGN_IN) {
@@ -52,7 +54,7 @@ const Header = () => {
             <Link to={"/contact"}>Contact</Link>
           </li>
           <li key={"cart"}>
-            <Link to={"/cart"}>Cart</Link>
+            <Link to={"/cart"}>Cart ({cartItmes.length} Items)</Link>
           </li>
           <button className={styles.signIn} onClick={() => updateBtnName()}>
             <p>

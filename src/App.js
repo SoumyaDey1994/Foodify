@@ -9,6 +9,8 @@ import Error from "./components/Error";
 import Shimmer from "./components/Shimmer";
 import Footer from "./components/Footer";
 import loggedInUserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./Store/appStore";
 
 const About = lazy(() => import("./components/About"));
 const Cart = lazy(() => import("./components/Cart"));
@@ -18,11 +20,13 @@ const AppLayout = () => {
   const [userInfo, setUserInfo] = useState(null);
   return (
     <div className="app">
-      <loggedInUserContext.Provider value={{userInfo, setUserInfo}}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </loggedInUserContext.Provider>
+      <Provider store={appStore}>
+        <loggedInUserContext.Provider value={{ userInfo, setUserInfo }}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </loggedInUserContext.Provider>
+      </Provider>
     </div>
   );
 };
