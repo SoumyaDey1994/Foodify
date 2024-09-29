@@ -1,9 +1,18 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Header from "../components/Header";
 import { Provider } from "react-redux";
 import appStore from "../Store/appStore";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
+import { act } from "react";
+
+global.fetch = jest.fn(() => {
+  return Promise.resolve({
+    json: () => {
+      return Promise.resolve({ name: "TEST_USERNAME" });
+    },
+  });
+});
 
 describe("Test Header Component", () => {
   it("should load app logo", () => {
@@ -43,5 +52,29 @@ describe("Test Header Component", () => {
 
     const signInButton = screen.getByRole("button", { name: "Sign In" });
     expect(signInButton).toBeInTheDocument();
+  });
+
+  it("should toggle button text on click on sign-in button", async () => {
+    await act(async () => {
+      render(
+        <BrowserRouter>
+          <Provider store={appStore}>
+            <Header />
+          </Provider>
+        </BrowserRouter>
+      );
+    });
+
+    const signInButton = screen.getByRole("button", { name: "Sign In" });
+    fireEvent.click(signInButton);
+
+    await waitFor(() => {
+      const signOutButton = screen.getByRole("button", {
+        name: /TEST_USERNAME/,
+      });
+      expect(signOutButton).toBeInTheDocument();
+      fireEvent.click(signOutButton);
+      expect(signInButton).toBeInTheDocument();
+    });
   });
 });
