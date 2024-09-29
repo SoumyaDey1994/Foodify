@@ -1,0 +1,19 @@
+
+.inputBox {
+    display: block;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.submitBtn {
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: rgb(232, 227, 227);
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
