@@ -40,7 +40,7 @@ const Header = () => {
         }
       >
         <Link to={"/"}>
-          <img src={LOGO_URL} className={styles.logo} />
+          <img src={LOGO_URL} className={styles.logo} alt="app-logo"/>
         </Link>
       </div>
       <div className={styles.navContainer}>
