@@ -8,7 +8,7 @@ import styles from "../styles/Body.module.css";
 
 const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  const [searchInput, setSearchInput] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
   const originalList = useRestaurantList();
 
   const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
@@ -34,7 +34,7 @@ const Body = () => {
     setFilteredRestaurants(filteredList);
   };
 
-  if (filteredRestaurants.length === 0) return <Shimmer />;
+  if (filteredRestaurants?.length === 0) return <Shimmer />;
 
   return (
     <div className={styles.body}>
@@ -59,7 +59,7 @@ const Body = () => {
       </div>
 
       <div className={styles.resContainer}>
-        {filteredRestaurants.map((restaurant) => (
+        {filteredRestaurants?.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
