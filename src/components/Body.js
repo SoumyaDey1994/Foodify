@@ -15,7 +15,7 @@ const Body = () => {
 
   useEffect(() => {
     setFilteredRestaurants(originalList);
-  }, [originalList]);
+  }, []);
 
   const findTopRatedRes = () => {
     const filteredList = originalList.filter(

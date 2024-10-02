@@ -13,9 +13,8 @@ const RestaurantCard = (props) => {
     sla,
   } = props?.resData;
 
-  const { link } = props;
   return (
-    <div className={styles.resCard}>
+    <div className={styles.resCard} data-testid="res-card">
       <img
         src={`${THUMBNAIL_IMAGE_BASE_URL}${cloudinaryImageId}`}
         className={styles.resLogo}
