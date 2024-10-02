@@ -1,4 +1,5 @@
-.cart > h1, h3 {
+.cart > h1, 
+.cart > h3 {
     text-align: center;
     margin: 50px auto;
 }
@@ -15,6 +16,7 @@
     justify-content: center;
     align-items: center;
     font-size: medium;
+    margin: 20px auto;
 }
 
 .cartItems {
