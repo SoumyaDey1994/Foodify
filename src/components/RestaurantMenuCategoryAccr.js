@@ -10,11 +10,15 @@ const RestaurantMenuCategoryAccr = (props) => {
       {/**
        * Accordian Header
        */}
-      <div className={styles.categoryHeader}>
+      <div
+        className={styles.categoryHeader}
+        onClick={() => setIsExpanded(!isExpanded)}
+        data-testid="menuCategory"
+      >
         <h3>
           {category?.title} ({category?.itemCards?.length})
         </h3>
-        <button style={{}} onClick={() => setIsExpanded(!isExpanded)}>
+        <button style={{}}>
           <span>{isExpanded ? "-" : "+"}</span>
         </button>
       </div>

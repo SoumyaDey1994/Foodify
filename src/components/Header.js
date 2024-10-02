@@ -40,21 +40,21 @@ const Header = () => {
         }
       >
         <Link to={"/"}>
-          <img src={LOGO_URL} className={styles.logo} alt="app-logo"/>
+          <img src={LOGO_URL} className={styles.logo} alt="app-logo" />
         </Link>
       </div>
       <div className={styles.navContainer}>
         <ul>
-          <li key={"home"}>
+          <li key={"home"} data-testid="home">
             <Link to={"/"}>Home</Link>
           </li>
-          <li key={"about"}>
+          <li key={"about"} data-testid="about">
             <Link to={"/about"}>About</Link>
           </li>
-          <li key={"contact"}>
+          <li key={"contact"} data-testid="contact">
             <Link to={"/contact"}>Contact</Link>
           </li>
-          <li key={"cart"}>
+          <li key={"cart"} data-testid="cart">
             <Link to={"/cart"}>Cart ({cartItmes.length} Items)</Link>
           </li>
           <button className={styles.signIn} onClick={() => updateBtnName()}>
