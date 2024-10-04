@@ -1,11 +1,17 @@
 import styles from "../styles/AddMenuItem.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../Store/cartSlice";
 import { useState } from "react";
 
 const AddMenuItem = (props) => {
   const item = props.item;
-  const [selectedCount, setSelectedCount] = useState(item.selectedCount || 0);
+  const cartItems = useSelector((store) => store.cart.items);
+  const targetItem = cartItems.find(
+    (cartItem) => cartItem.id === item?.card?.info?.id
+  );
+  const [selectedCount, setSelectedCount] = useState(
+    targetItem?.selectedCount || item?.selectedCount || 0
+  );
 
   const dispatch = useDispatch();
 

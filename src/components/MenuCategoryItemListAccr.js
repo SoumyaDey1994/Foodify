@@ -10,11 +10,7 @@ const MenuCategoryItemListAccr = (props) => {
         const { name, defaultPrice, price, description, imageId, id } =
           item.card.info;
         return (
-          <div
-            className={styles.menuItem}
-            key={`${id}_${Math.random()}`}
-            data-testid="menu-item"
-          >
+          <div className={styles.menuItem} key={id} data-testid="menu-item">
             <div className={styles.itemDescription}>
               <h4>{name}</h4>
               <span>
