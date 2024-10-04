@@ -31,9 +31,9 @@ const AddMenuItem = (props) => {
     <div>
       {item.selectedCount > 0 || selectedCount > 0 ? (
         <div className={styles.itemSelectBtnGroup}>
-          <button onClick={() => handleRemoveMenuItem(item)}>-</button>
-          <span>{selectedCount}</span>
-          <button onClick={() => handleAddMenuItem(item)}>+</button>
+          <button onClick={() => handleRemoveMenuItem(item)} data-testid="decrease-count">-</button>
+          <span data-testid="item-count">{selectedCount}</span>
+          <button onClick={() => handleAddMenuItem(item)} data-testid="increase-count">+</button>
         </div>
       ) : (
         <button

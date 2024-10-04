@@ -95,6 +95,58 @@ describe("Test Add-to-Cart feature", () => {
     expect(menuItems.length).toBe(2);
   });
 
+  it("Should increas/decrease item count on clicking corresponding buttons", async () => {
+    await act(async () => {
+      render(
+        <BrowserRouter>
+          <Provider store={appStore}>
+            <Cart />
+          </Provider>
+        </BrowserRouter>
+      );
+    });
+
+    expect(screen.getByText("Checkout")).toBeInTheDocument();
+
+    const items = screen.getAllByTestId("menu-item");
+    expect(items.length).toBe(2);
+
+    const itemIncreaseCounterBtn = screen.getAllByTestId("increase-count")?.[0];
+    const itemDecreaseCounterBtn = screen.getAllByTestId("decrease-count")?.[0];
+    const itemCountBefore = screen.getAllByTestId("item-count")?.[0];
+    expect(itemCountBefore.textContent).toBe("1");
+
+    fireEvent.click(itemIncreaseCounterBtn); // add 1 - total 2
+    fireEvent.click(itemIncreaseCounterBtn); // add 1 - total 3
+    fireEvent.click(itemDecreaseCounterBtn); // remove 1 - total 2
+
+    const itemCountAfter = screen.getAllByTestId("item-count")?.[0];
+    expect(itemCountAfter.textContent).toBe("2");
+  });
+
+  it("Should remove item from cart if count is 0", async () => {
+    await act(async () =>
+      render(
+        <BrowserRouter>
+          <Provider store={appStore}>
+            <Cart />
+          </Provider>
+        </BrowserRouter>
+      )
+    );
+
+    const itemsBeforeDecr = screen.getAllByTestId("menu-item");
+    expect(itemsBeforeDecr.length).toBe(2);
+
+    const itemDecreaseCounterBtn = screen.getAllByTestId("decrease-count")?.[1];
+    const itemCountBefore = screen.getAllByTestId("item-count")?.[1];
+    expect(itemCountBefore.textContent).toBe("1");
+
+    fireEvent.click(itemDecreaseCounterBtn);
+    const itemsAfterDecr = screen.getAllByTestId("menu-item");
+    expect(itemsAfterDecr.length).toBe(1);
+  });
+
   it("Should clear cart items on click", async () => {
     await act(async () => {
       render(
@@ -112,7 +164,7 @@ describe("Test Add-to-Cart feature", () => {
     expect(clearBtn).toBeInTheDocument();
 
     const itemsBeforeClear = screen.getAllByTestId("menu-item");
-    expect(itemsBeforeClear.length).toBe(2);
+    expect(itemsBeforeClear.length).toBe(1);
 
     fireEvent.click(clearBtn);
 
