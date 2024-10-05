@@ -1,3 +1,5 @@
+## Foodify App
+
 /**
  * Header
  *  - Logo

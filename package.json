@@ -1,7 +1,7 @@
 {
-  "name": "namaste-react",
+  "name": "foodify",
   "version": "1.0.0",
-  "description": "This is Namaste React course",
+  "description": "This is Foodify app by Namaste React course",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
