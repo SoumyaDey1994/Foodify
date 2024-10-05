@@ -38,6 +38,7 @@ const Header = () => {
           `${styles.logoContainer} ` +
           (isAppOnline ? styles.appOnline : styles.appOffline)
         }
+        data-testid={isAppOnline ? "app-online" : "app-offline"}
       >
         <Link to={"/"}>
           <img src={LOGO_URL} className={styles.logo} alt="app-logo" />

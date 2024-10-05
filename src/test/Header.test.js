@@ -28,6 +28,22 @@ describe("Test Header Component", () => {
     expect(logo).toBeInTheDocument();
   });
 
+  it("should indicate online/offline status accordingly", () => {
+    render(
+      <BrowserRouter>
+        <Provider store={appStore}>
+          <Header />
+        </Provider>
+      </BrowserRouter>
+    );
+
+    fireEvent(window, new Event("offline"));
+    expect(screen.getByTestId("app-offline")).toBeInTheDocument();
+
+    fireEvent(window, new Event("online"));
+    expect(screen.getByTestId("app-online")).toBeInTheDocument();
+  });
+
   it("should have Cart tab", () => {
     render(
       <BrowserRouter>

@@ -170,5 +170,6 @@ describe("Test Add-to-Cart feature", () => {
 
     const itemsAfterClear = screen.queryAllByTestId("menu-item");
     expect(itemsAfterClear.length).toBe(0);
+    expect(screen.getByTestId("empty-cart")).toBeInTheDocument();
   });
 });
