@@ -33,6 +33,8 @@
     - Use of Props
     - React reconciliation algorithm, virtual DOM & React Fiber
     - Structure our app with multiple component files
+    - Use logical operators for conditional rendering
+    - Browser event handling
     - Introduce React Hooks - useState() & useEffect()
     - Manage component state using useState()
     - Make API call using fetch(...) inside useEffect()
@@ -96,5 +98,8 @@
     - Other topics (not covered yet in course)
         - React Portal
         - Input sanitization
+        - Form Handling
+        - User authentication & protected routes
+        - Use of react-query
         - Next.js setup
         - E2E test using Cypress
